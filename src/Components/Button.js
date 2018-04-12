@@ -4,9 +4,21 @@ import './../App.css';
 class Button extends Component {
   render() {
     if(this.props.type === 'delete'){
-      return (<button className="buttons delete" onClick={() => this.sendDelete()}>Delete</button>)
+      return (
+        <button
+          className="buttons delete"
+          onClick={() => this.props.handleDelete(this.props.index)}>
+          Delete
+        </button>
+      )
     }
-    return (<button className="buttons update" onClick={() => this.sendUpdate()}>Update</button>)
+    return (
+      <button
+        className="buttons update"
+        onClick={() => this.props.handleUpdate(this.props.index)}>
+        Update
+      </button>
+    )
   }
 }
 

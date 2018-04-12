@@ -1,6 +1,6 @@
+import Button from './Button';
 import React, { Component } from 'react';
 import './../App.css';
-import Button from './Button';
 
 class Card extends Component {
   render() {
@@ -21,8 +21,8 @@ class Card extends Component {
           </ol>
         <br />
         <div>
-          <Button type={'delete'} index={this.props.index}/>
-          <Button type={'update'} index={this.props.index}/>
+          <Button type={'delete'} index={this.props.index} handleDelete={this.props.handleDelete}/>
+          <Button type={'update'} index={this.props.index} handleUpdate={this.props.handleUpdate}/>
         </div>
       </div>
     )
