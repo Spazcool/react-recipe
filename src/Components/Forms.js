@@ -5,16 +5,22 @@ class Forms extends Component {
   render() {
     return (
       <div>
-        <form className={this.props.updating ? 'updateCardForm' : null} onSubmit={this.handleSubmit}>
+        <form
+          className={this.props.updating ? 'updateCardForm' : null}
+          onSubmit={() => this.props.handleRecipe()}
+        >
           <ul className="addBar">
             <li>
               <label>
                 Name <br />
                 <textarea
                   cols="50"
+                  name="currentName"
+                  onChange={this.props.handleChange}
+                  placeholder="What ya cookin?"
                   rows="5"
-                  name="name"
                   type="text"
+                  value={this.props.currentName}
                 />
               </label>
             </li>
@@ -23,10 +29,12 @@ class Forms extends Component {
                 Ingredients <br />
                 <textarea
                   cols="50"
-                  rows="5"
+                  name="currentIngredients"
+                  onChange={this.props.handleChange}
                   placeholder="Separate each item with any of the following puncuation . ! , ; : / \ or a space"
-                  name="ingredients"
+                  rows="5"
                   type="text"
+                  value={this.props.currentIngredients}
                 />
               </label>
             </li>
@@ -35,10 +43,12 @@ class Forms extends Component {
                 Directions <br />
                 <textarea
                   cols="50"
-                  rows="5"
+                  name="currentDirections"
+                  onChange={this.props.handleChange}
                   placeholder="Separate each step with any of the following puncuation . ! , ; : / \"
-                  name="directions"
+                  rows="5"
                   type="text"
+                  value={this.props.currentDirections}
                 />
               </label>
             </li>

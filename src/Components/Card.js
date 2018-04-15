@@ -4,6 +4,14 @@ import './../App.css';
 
 class Card extends Component {
   render() {
+    let Buttons;
+    if(!this.props.updating){
+      Buttons =
+      <div>
+        <Button type={'delete'} index={this.props.index} handleDelete={this.props.handleDelete}/>
+        <Button type={'update'} index={this.props.index} toggleUpdate={this.props.toggleUpdate}/>
+      </div>;
+    }
     return (
       <div className="Card" key={this.props.index}>
         <h1>{this.props.recipe.name}</h1>
@@ -20,10 +28,7 @@ class Card extends Component {
             })}
           </ol>
         <br />
-        <div>
-          <Button type={'delete'} index={this.props.index} handleDelete={this.props.handleDelete}/>
-          <Button type={'update'} index={this.props.index} handleUpdate={this.props.handleUpdate}/>
-        </div>
+          {Buttons}
       </div>
     )
   }

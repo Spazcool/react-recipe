@@ -15,7 +15,7 @@ class Button extends Component {
     return (
       <button
         className="buttons update"
-        onClick={() => this.props.handleUpdate(this.props.index)}>
+        onClick={() => this.props.toggleUpdate(this.props.index)}>
         Update
       </button>
     )

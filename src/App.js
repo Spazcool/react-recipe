@@ -9,64 +9,82 @@ class App extends Component {
     super(props);
     this.state = {
       currentDirections: [],
-      currentIngredients: '',
+      currentIngredients: [],
       currentName: '',
       recipes: recipes,
       updating: false,
       updatingCard: 0,
     };
-    this.submitUpdate = this.submitUpdate.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.submitDelete = this.submitDelete.bind(this);
+    this.submitRecipe = this.submitRecipe.bind(this);
+    this.toggleUpdate = this.toggleUpdate.bind(this);
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    console.log('compWillUp: nexPro ', nextProps);
+    console.log('compWillUp: nexSta ', nextState);    
+  }
+
+  handleChange(event) {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
   }
 
   submitDelete(e) {
-    console.log("this is delete: ", e);
-    // let removedArr = this.state.recipes;
-    // removedArr.splice(e, 1);
-    // this.setState({
-    //   recipes: removedArr
-    // });
+    let tempArr = this.state.recipes;
+    tempArr.splice(e, 1);
+    this.setState({
+      recipes: tempArr,
+    });
   }
 
-  submitUpdate(e) {
-    if(!this.state.updating){
-      this.setState({
-        updating: true,
-        updatingCard: e,
-      });
-    }else{
-      this.setState({
-        updating: false,
-        updatingCard: 0,
-      });
-    }
-    console.log("this is update: ", e);
-    console.log("state of update: ", this.state.updating);
+  submitRecipe(e) {
+    let tempArr = this.state.recipes;
+    tempArr.push({
+      name: this.state.currentName,
+      ingredients: this.state.currentIngredients.split(/[\s.,\/\\;:\-_]/g),
+      directions: this.state.currentDirections.split(/[.,!\/\\;:\-_]/g),
+    });
+    this.setState({
+      recipes: tempArr,
+    });
+  }
+
+  toggleUpdate(e) {
+    let newState = this.state.updating === true ? false : true;
+    this.setState({
+      updating: newState,
+      updatingCard: e,
+    });
   }
 
   render() {
+    console.log('Parent render: ', this.state.recipes);
     return (
       <div className="App">
-
         <header className="App-header">
           <h1 className="App-title">Recipe React</h1>
         </header>
-
-        {/* updating a card change input styling and handling function */}
-        <Forms updating={this.state.updating}/>
-
-        {/* when updating a card show just that card in the cards section*/}
+        <Forms
+          currentDirections={this.state.currentDirections}
+          currentIngredients={this.state.currentIngredients}
+          currentName={this.state.currentName}
+          handleChange={this.handleChange}
+          handleRecipe={this.submitRecipe}
+          updating={this.state.updating}
+        />
         <Cards
           handleDelete={this.submitDelete}
-          handleUpdate={this.submitUpdate}
+          toggleUpdate={this.toggleUpdate}
           recipes={this.state.recipes}
           updating={this.state.updating}
           updateIndex={this.state.updatingCard}
         />
-
         <footer>
           <h6>Made by Doug.</h6>
         </footer>
-
       </div>
     );
   }
