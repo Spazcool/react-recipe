@@ -3,22 +3,22 @@ import './../App.css';
 
 class Forms extends Component {
   render() {
+    let updateCard = this.props.updating ? this.props.updatingCard : null;
     return (
       <div>
         <form
           className={this.props.updating ? 'updateCardForm' : null}
-          onSubmit={() => this.props.handleRecipe()}
+          onSubmit={(e) => {e.preventDefault(); this.props.handleRecipe(updateCard);
+          }}
         >
           <ul className="addBar">
             <li>
               <label>
                 Name <br />
                 <textarea
-                  cols="50"
                   name="currentName"
                   onChange={this.props.handleChange}
-                  placeholder="What ya cookin?"
-                  rows="5"
+                  placeholder={"What ya cookin?"}
                   type="text"
                   value={this.props.currentName}
                 />
@@ -28,11 +28,9 @@ class Forms extends Component {
               <label>
                 Ingredients <br />
                 <textarea
-                  cols="50"
                   name="currentIngredients"
                   onChange={this.props.handleChange}
-                  placeholder="Separate each item with any of the following puncuation . ! , ; : / \ or a space"
-                  rows="5"
+                  placeholder={"Separate each item with any of the following puncuation . , ; : /"}
                   type="text"
                   value={this.props.currentIngredients}
                 />
@@ -42,18 +40,16 @@ class Forms extends Component {
               <label>
                 Directions <br />
                 <textarea
-                  cols="50"
                   name="currentDirections"
                   onChange={this.props.handleChange}
-                  placeholder="Separate each step with any of the following puncuation . ! , ; : / \"
-                  rows="5"
+                  placeholder={"Separate each step with any of the following puncuation . ! , ; : /"}
                   type="text"
                   value={this.props.currentDirections}
                 />
               </label>
             </li>
           </ul>
-          <input type="submit" value="Submit" className="submit"/>
+          <input type="submit" value="Submit" className="button submit"/>
         </form>
       </div>
     );

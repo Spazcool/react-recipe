@@ -6,7 +6,7 @@ class Button extends Component {
     if(this.props.type === 'delete'){
       return (
         <button
-          className="buttons delete"
+          className="button delete"
           onClick={() => this.props.handleDelete(this.props.index)}>
           Delete
         </button>
@@ -14,7 +14,7 @@ class Button extends Component {
     }
     return (
       <button
-        className="buttons update"
+        className="button update"
         onClick={() => this.props.toggleUpdate(this.props.index)}>
         Update
       </button>

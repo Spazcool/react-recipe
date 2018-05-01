@@ -5,16 +5,31 @@ import './../App.css';
 class Card extends Component {
   render() {
     let Buttons;
+    let MouseEnter;
+    let MouseLeave;
+    let updating;
     if(!this.props.updating){
       Buttons =
       <div>
         <Button type={'delete'} index={this.props.index} handleDelete={this.props.handleDelete}/>
         <Button type={'update'} index={this.props.index} toggleUpdate={this.props.toggleUpdate}/>
       </div>;
+      MouseEnter = () => this.props.onMouseEnter(this.props.id);
+      MouseLeave = () => this.props.onMouseLeave(this.props.id);
+      updating = "card";
+    }
+    if(this.props.updating){
+      updating = "card focusCard";
     }
     return (
-      <div className="Card" key={this.props.index}>
+      <div
+        className={updating}
+        id={this.props.id}
+        key={this.props.index}
+        onMouseEnter={MouseEnter}
+        onMouseLeave={MouseLeave}>
         <h1>{this.props.recipe.name}</h1>
+        <div className="hide">
         <h2>Ingredients</h2>
           <ul>
             {this.props.recipe.ingredients.map((ingredient, index) => {
@@ -29,6 +44,7 @@ class Card extends Component {
           </ol>
         <br />
           {Buttons}
+        </div>
       </div>
     )
   }
