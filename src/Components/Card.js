@@ -29,7 +29,7 @@ class Card extends Component {
         onMouseEnter={MouseEnter}
         onMouseLeave={MouseLeave}>
         <h1>{this.props.recipe.name}</h1>
-        <div className="hide">
+        <div className="hiddenInfo">
         <h2>Ingredients</h2>
           <ul>
             {this.props.recipe.ingredients.map((ingredient, index) => {

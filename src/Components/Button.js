@@ -3,20 +3,17 @@ import './../App.css';
 
 class Button extends Component {
   render() {
+    let onclick;
     if(this.props.type === 'delete'){
-      return (
-        <button
-          className="button delete"
-          onClick={() => this.props.handleDelete(this.props.index)}>
-          Delete
-        </button>
-      )
+      onclick = () => this.props.handleDelete(this.props.index);
+    }else{
+      onclick = () => this.props.toggleUpdate(this.props.index);
     }
     return (
       <button
-        className="button update"
-        onClick={() => this.props.toggleUpdate(this.props.index)}>
-        Update
+        className={'button' + ' ' + this.props.type}
+        onClick={onclick}>
+        {this.props.type}
       </button>
     )
   }
