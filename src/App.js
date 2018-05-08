@@ -1,7 +1,8 @@
 import Cards from './Components/Cards';
+import FadeIn from 'react-fade-in';
 import Forms from './Components/Forms';
 import React, { Component } from 'react';
-import recipes from './recipes.js'; // mock data
+import recipes from './recipes.js'; // mock data || starting recipes
 import './App.css';
 
 class App extends Component {
@@ -79,8 +80,16 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">React Recipe</h1>
-          <h6 className="credits">Made by Doug.</h6>
+          <FadeIn>
+            <h1 className="App-title">
+              <a href="https://www.freecodecamp.org/challenges/build-a-recipe-box">
+                React Recipe
+              </a>
+            </h1>
+            <h6 className="credits">
+              Made by <a href="https://github.com/Spazcool/">Doug</a>.
+            </h6>
+          </FadeIn>
         </header>
         <Forms
           currentDirections={this.state.currentDirections}

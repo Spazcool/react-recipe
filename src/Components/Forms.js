@@ -8,9 +8,7 @@ class Forms extends Component {
       <div>
         <form
           className={this.props.updating ? 'updateCardForm' : null}
-          onSubmit={(e) => {e.preventDefault(); this.props.handleRecipe(updateCard);
-          }}
-        >
+          onSubmit={(e) => {e.preventDefault(); this.props.handleRecipe(updateCard);}}>
           <ul className="addBar">
             <li>
               <label>
