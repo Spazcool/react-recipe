@@ -1,17 +1,12 @@
 body {
-  /* background-color: #34495e; */
-  /* color: white; */
   margin: 0;
   max-width:100%;
-  /* overflow-x:hidden; */
   padding: 0;
   width: 100vw;
 }
 .App {
-  /* text-align: center; */
   margin: 0;
   max-width:100%;
-  /* overflow-x:hidden; */
   padding: 0;
   position: static;
   text-align: center;
@@ -27,7 +22,9 @@ body {
   color: inherit;
   text-decoration: none;
 }
-
+.App-header a:hover{
+  color: #CC3232;
+}
 .App-title {
   font-size: 1.5em;
   text-align: left;
@@ -60,7 +57,7 @@ textarea{
   width: 24.5vw;
 }
 .updateCardForm{
-  background-color: red;
+  background-color: #CC3232;
 }
 
 /*CARDS*/

@@ -30,19 +30,19 @@ class Card extends Component {
         onMouseLeave={MouseLeave}>
         <h1>{this.props.recipe.name}</h1>
         <div className="hiddenInfo">
-        <h2>Ingredients</h2>
+          <h2>Ingredients</h2>
           <ul>
             {this.props.recipe.ingredients.map((ingredient, index) => {
               return (<li key={index}>{ingredient}</li>)
             })}
           </ul>
-        <h2>Directions</h2>
+          <h2>Directions</h2>
           <ol>
             {this.props.recipe.directions.map((direction, index) => {
               return (<li key={index}>{direction}</li>)
             })}
           </ol>
-        <br />
+          <br />
           {Buttons}
         </div>
       </div>
