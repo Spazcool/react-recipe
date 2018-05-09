@@ -3,7 +3,7 @@
   "author": "Douglas Wright",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://www.spazcool.com/recipe",
+  "homepage": "http://www.spazcool.com/react-recipe",
   "dependencies": {
     "gh-pages": "^1.1.0",
     "react": "^16.2.0",
