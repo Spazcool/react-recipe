@@ -81,14 +81,15 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <FadeIn>
-            <h1 className="App-title">
-              <a href="https://www.freecodecamp.org/challenges/build-a-recipe-box">
-                React Recipe
-              </a>
-            </h1>
-            <h6 className="credits">
+            <div className="App-title">
+              <a href="https://www.freecodecamp.org/challenges/build-a-recipe-box">React Recipe</a>
+            </div>
+            <div className="home">
+              <a href="http://www.spazcool.com">Home</a>
+            </div>
+            <div className="credits">
               Made by <a href="https://github.com/Spazcool/">Doug</a>.
-            </h6>
+            </div>
           </FadeIn>
         </header>
         <Forms
