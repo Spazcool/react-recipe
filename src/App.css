@@ -67,6 +67,7 @@ textarea{
 /*CARDS*/
 @media only screen and (max-device-width: 667px){
   .colOne, .colTwo, .colThree{
+    cursor: pointer;
     margin: 0;
     padding: 0;
     width: 100vw;
@@ -92,6 +93,7 @@ textarea{
   cursor: pointer;
 }
 .hiddenInfo{
+  cursor: pointer;
   height: 0;
   overflow: hidden;
 }
