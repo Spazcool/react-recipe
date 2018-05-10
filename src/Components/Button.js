@@ -11,7 +11,7 @@ class Button extends Component {
       onclick = () => this.props.toggleUpdate(this.props.index);
     }
     return (
-      <Tappable onTap={onClick}>
+      <Tappable onTap={onclick}>
         <button
           className={'button' + ' ' + this.props.type}
           onClick={onclick}>
