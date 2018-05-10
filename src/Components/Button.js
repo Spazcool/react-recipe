@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Tappable from 'react-tappable';
 import './../App.css';
 
 class Button extends Component {
@@ -10,11 +11,13 @@ class Button extends Component {
       onclick = () => this.props.toggleUpdate(this.props.index);
     }
     return (
-      <button
-        className={'button' + ' ' + this.props.type}
-        onClick={onclick}>
-        {this.props.type}
-      </button>
+      <Tappable onTap={onClick}>
+        <button
+          className={'button' + ' ' + this.props.type}
+          onClick={onclick}>
+          {this.props.type}
+        </button>
+      </Tappable>
     )
   }
 }
