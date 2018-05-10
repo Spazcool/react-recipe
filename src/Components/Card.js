@@ -1,5 +1,6 @@
 import Button from './Button';
 import React, { Component } from 'react';
+import Tappable from 'react-tappable';
 import './../App.css';
 
 class Card extends Component {
@@ -22,30 +23,32 @@ class Card extends Component {
       updating = "card focusCard";
     }
     return (
-      <div
-        className={updating}
-        id={this.props.id}
-        key={this.props.index}
-        onMouseEnter={MouseEnter}
-        onMouseLeave={MouseLeave}>
-        <h1>{this.props.recipe.name}</h1>
-        <div className="hiddenInfo">
-          <h2>Ingredients</h2>
-          <ul>
-            {this.props.recipe.ingredients.map((ingredient, index) => {
-              return (<li key={index}>{ingredient}</li>)
-            })}
-          </ul>
-          <h2>Directions</h2>
-          <ol>
-            {this.props.recipe.directions.map((direction, index) => {
-              return (<li key={index}>{direction}</li>)
-            })}
-          </ol>
-          <br />
-          {Buttons}
+      <Tappable onTap={MouseEnter}>
+        <div
+          className={updating}
+          id={this.props.id}
+          key={this.props.index}
+          onMouseEnter={MouseEnter}
+          onMouseLeave={MouseLeave}>
+          <h1>{this.props.recipe.name}</h1>
+          <div className="hiddenInfo">
+            <h2>Ingredients</h2>
+            <ul>
+              {this.props.recipe.ingredients.map((ingredient, index) => {
+                return (<li key={index}>{ingredient}</li>)
+              })}
+            </ul>
+            <h2>Directions</h2>
+            <ol>
+              {this.props.recipe.directions.map((direction, index) => {
+                return (<li key={index}>{direction}</li>)
+              })}
+            </ol>
+            <br />
+            {Buttons}
+          </div>
         </div>
-      </div>
+      </Tappable>
     )
   }
 }
