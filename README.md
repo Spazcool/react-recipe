@@ -4,7 +4,7 @@ This is my Recipe Box, created using React, CSS & HTML as one of the projects to
 
 ## Getting Started
 
-Host locally after download or check out the one hosted on my site [Recipe Box](http://www.spazcool.com/recipe/)
+Host locally after download or check out the one hosted on my site [Recipe Box](http://www.spazcool.com/react-recipe/)
 
 ### Prerequisites
 
