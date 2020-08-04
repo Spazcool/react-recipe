@@ -3,7 +3,7 @@
 This is my Recipe Box, created using React, CSS & HTML as one of the projects to freeCodeCamp's data visualization program.
 
 <p align="center">
-   <img width="80%" height="400vh" src="./public/images/desktop.gif">
+   <img width="80%" height="400vh" src="./desktop.gif">
 </p>
 
 ## Getting Started
